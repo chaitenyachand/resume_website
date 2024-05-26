@@ -8,6 +8,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 section {
@@ -25,26 +26,19 @@ h2 {
 }
 
 .timeline-item {
-    background: #f4f4f4;
+    background: #fff;
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
     width: 80%;
     max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .skills-list {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.skills-list .list-inline-item {
-    background: #007bff;
-    color: #fff;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
 }
 
 .projects-container {
@@ -54,10 +48,11 @@ h2 {
 }
 
 .project-card {
-    background: #f4f4f4;
+    background: #fff;
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .btn {
@@ -65,5 +60,5 @@ h2 {
 }
 
 .btn:hover {
-    background: #0056b3;
+    background: #004085;
 }
