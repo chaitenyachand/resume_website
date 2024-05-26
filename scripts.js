@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectCard = document.createElement('div');
         projectCard.className = 'col-md-6';
         projectCard.innerHTML = `
-            <div class="card mb-4">
+            <div class="card mb-4 project-card">
                 <div class="card-body">
                     <h3 class="card-title">${project.title}</h3>
                     <p class="card-text">${project.description}</p>
@@ -52,3 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
