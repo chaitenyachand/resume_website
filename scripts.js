@@ -1,42 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Smooth Scroll
-    document.querySelectorAll('a.nav-link').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+const links = document.querySelectorAll('nav ul li a');
+const sections = document.querySelectorAll('main section');
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Dynamic Project Insertion
-    const projects = [
-        {
-            title: 'Project 1',
-            description: 'A brief description of the project and what technologies were used.',
-        },
-        {
-            title: 'Project 2',
-            description: 'A brief description of the project and what technologies were used.',
-        },
-        // Add more projects as needed
-    ];
-
-    const projectsContainer = document.getElementById('projects-container');
-
-    projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'col-md-6';
-        projectCard.innerHTML = `
-            <div class="card mb-4 project-card">
-                <div class="card-body">
-                    <h3 class="card-title">${project.title}</h3>
-                    <p class="card-text">${project.description}</p>
-                </div>
-            </div>
-        `;
-        projectsContainer.appendChild(projectCard);
-    });
+links.forEach((link, index) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScrollTo(sections[index]);
+  });
 });
 
+function smoothScrollTo(element, duration = 500) {
+  const start = window.pageYOffset;
+  const to = element.offsetTop;
+  const change = to - start;
+  const increment = 20;
+  let currentTime = 0;
+
+  const animateScroll = () => {
+    currentTime += increment;
+    const val = easeInOutQuad(currentTime, start, change, duration);
+    window.scrollTo(0, val);
+    if (currentTime < duration) {
+      requestAnimationFrame(animateScroll);
+    }
+  };
+
+  animateScroll();
+}
+
+function easeInOutQuad(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return (c / 2) * t * t + b;
+  t--;
+  return (-c / 2) * (t * (t - 2) - 1) + b;
+}
