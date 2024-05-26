@@ -38,18 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         projectsContainer.appendChild(projectCard);
     });
-
-    // Contact Form Validation
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function (e) {
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
-
-        if (!name || !email || !message) {
-            e.preventDefault();
-            alert('Please fill out all fields.');
-        }
-    });
 });
 
